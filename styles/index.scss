@@ -1,0 +1,11 @@
+// PARTIALS
+// @import '../assets/fonts/fonts';
+@import "./partials/features";
+@import "./app/globals";
+
+// PAGES
+@import './app/products/products';
+
+// COMPONENTS
+@import './components/dropdown-menu/dropdown-menu-checkboxes/dropdown-menu-checkboxes';
+@import './components/select/select-scrollable/select-scrollable';
