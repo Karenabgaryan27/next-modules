@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sheet - Your Website Name",
     description: "This is the sheet page for managing your content.",
-    images: [`${siteUrl}/assets/images/twitter-image.jpg`],
+    images: [{url:`${siteUrl}/assets/images/twitter-image.jpg`}],
   },
 };
 
