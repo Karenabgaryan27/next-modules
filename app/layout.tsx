@@ -37,7 +37,7 @@ const roboto = Roboto({
 });
 
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://next-modules.vercel.app/";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://next-modules.vercel.app";
 
 export const metadata: Metadata = {
   title: "Create Next App",
