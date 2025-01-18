@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
 
 const Polygon = () => {
   return (
-    <div>Polygon</div>
-  )
-}
+    <main>
+      <section>
+        <div className="container">
+          <h2 className="text-4xl">Polygon</h2>
+          <br />
+          <br />
 
-export default Polygon
+          {process.env.SECRETMESSAGE}
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default Polygon;

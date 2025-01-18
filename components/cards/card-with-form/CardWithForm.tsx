@@ -16,7 +16,7 @@ type Props = {
   image?: string;
 };
 
-export function CardWithForm({ title = "title", description = "description", image = "" }: Props) {
+export function CardWithForm({ title = "title", description = "description", image = placeholder }: Props) {
   const [cover, setCover] = useState(image);
 
   return (
