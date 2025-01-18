@@ -36,7 +36,6 @@ const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
-
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://next-modules.vercel.app";
 
 export const metadata: Metadata = {
@@ -69,7 +68,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sheet - Your Website Name",
     description: "This is the sheet page for managing your content.",
-    images: [{url:`${siteUrl}/assets/images/twitter-image.jpg`}],
+    images: [
+      {
+        url: `${siteUrl}/assets/images/twitter-image.jpg`,
+        width: 800,
+        height: 600,
+        alt: "Your Website Logo",
+      },
+    ],
   },
 };
 
