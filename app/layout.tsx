@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Your Website Name",
     images: [
       {
-        url: `${siteUrl}/assets/images/og-image.jpg`,
+        url: `${siteUrl}/assets/images/og-image.png`,
         width: 800,
         height: 600,
         alt: "Your Website Logo",
