@@ -27,7 +27,7 @@ const images = {
   phone: "/assets/images/rest/phone.png",
   flag: "/assets/images/icons/flag.webp",
   vertical: "/assets/images/rest/vertical.jpg",
-  placeholder: "/assets/images/placeholder.png",
+  placeholder: "/assets/images/placeholder.jpg",
   gifImage: "/assets/images/gif-image.gif",
 
   // hight resolution images
