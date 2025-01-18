@@ -8,8 +8,14 @@ const Polygon = () => {
           <h2 className="text-4xl">Polygon</h2>
           <br />
           <br />
-          <strong>Secret Message: </strong>
-          {process.env.SECRETMESSAGE}
+          
+          <article className="mb-[200px]">
+            <h2 className="text-2xl">.env</h2>
+            <br />
+            <strong>Secret Message: </strong>
+            {process.env.SECRETMESSAGE}
+          </article>
+          <hr />
         </div>
       </section>
     </main>
