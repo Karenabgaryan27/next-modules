@@ -121,7 +121,6 @@ body {
 }
 
 
-
 @layer base {
   * {
     @apply border-border;
@@ -184,3 +183,6 @@ section {
 .dropdown-menu-wrapper {
 }
 
+button:focus {
+  box-shadow: none !important;
+}

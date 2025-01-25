@@ -12,6 +12,13 @@ export { ButtonDemo } from "./button/ButtonDemo.tsx";
 export { AccordionDemo } from "./accordion/AccordionDemo.tsx";
 export { DrawerDemo } from "./drawer/DrawerDemo.tsx";
 export { SheetDemo } from "./sheet/SheetDemo.tsx";
+export { DialogDemo } from "./dialog/DialogDemo.tsx";
+export { BreadcrumbDemo } from "./breadcrumb/BreadcrumbDemo.tsx";
+export { CarouselDemo } from "./carousel/CarouselDemo.tsx";
+export { InputDemo } from "./input/InputDemo.tsx";
+export { TextareaDemo } from "./textarea/TextareaDemo.tsx";
+export { CheckboxDemo } from "./checkbox/CheckboxDemo.tsx";
+export { SwitchDemo } from "./switch/SwitchDemo.tsx";
 
 // CARDS
 export { CardWithForm } from "./cards/card-with-form/CardWithForm.tsx";

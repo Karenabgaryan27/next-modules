@@ -24,6 +24,16 @@ export default {
   				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
+			success: {
+				DEFAULT: 'rgb(46, 125, 50)',
+				text: 'rgb(46, 125, 50)',
+				hover: 'rgb(27, 94, 32)'
+			},
+			warning: {
+				DEFAULT: 'rgb(237, 108, 2)',
+				text: 'rgb(237, 108, 2)',
+				hover: 'rgb(202, 91, 0)'
+			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'

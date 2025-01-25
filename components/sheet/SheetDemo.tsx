@@ -1,15 +1,17 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-//   SheetClose,
+  //   SheetClose,
   SheetContent,
   SheetDescription,
-//   SheetFooter,
+  //   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 type SheetDemoProps = {
   contentClassName?: string;
@@ -17,28 +19,30 @@ type SheetDemoProps = {
   description?: string;
   side?: "right" | "top" | "bottom" | "left" | null | undefined;
   trigger?: ReactNode;
-  children?: ReactNode,
+  children?: ReactNode | ((closeSheet: () => void) => ReactNode);
 };
 
 export function SheetDemo({
   contentClassName = "",
   title = "",
   description = "",
-  side='right',
+  side = "right",
   trigger = null,
-  children
+  children = null,
 }: SheetDemoProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeSheet = () => setIsOpen(false);
+
   return (
-    <Sheet >
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>{trigger ? trigger : <Button variant="outline">Open</Button>}</SheetTrigger>
-      <SheetContent className={contentClassName} side={side}>
-        <SheetHeader>
+      <SheetContent className={`${contentClassName} `} side={side}>
+        <SheetHeader className="text-left">
           <SheetTitle>{title}</SheetTitle>
           <SheetDescription>{description}</SheetDescription>
         </SheetHeader>
-        <div className="sheet-body">
-           {children}
-        </div>
+        <div className="sheet-body">{typeof children === "function" ? children(closeSheet) : children}</div>
         {/* <SheetFooter>
           <SheetClose asChild>
             <Button type="submit" size="sm">

@@ -1,4 +1,5 @@
 const images = {
+  logo: '/assets/images/logo.png',
   notFound: "/assets/images/not-found.png",
   exampleImage: "/assets/images/example.png",
   exampleImageSVG: "/assets/images/example.svg",

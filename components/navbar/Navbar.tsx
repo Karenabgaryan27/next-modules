@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { DropdownMenuDemo } from "@/components/index.js";
+import { Button } from "../ui/button";
+import { DropdownMenuDemo, ModeToggle, ButtonDemo, SheetDemo, AccordionDemo } from "@/components/index.js";
 import {
   DropdownMenuItem,
   DropdownMenuSeparator,
@@ -13,7 +14,8 @@ import {
   DropdownMenuPortal,
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
-import { Mail, UserPlus, Users } from "lucide-react";
+import { Mail, UserPlus, Users, ChevronDown, Menu } from "lucide-react";
+import localData from "@/localData";
 
 const componentLinks = [
   {
@@ -36,7 +38,21 @@ const componentLinks = [
     name: "Sheet",
     href: "/modules/sheet",
   },
+  {
+    name: "Dialog",
+    href: "/modules/dialog",
+  },
+  {
+    name: "Carousel",
+    href: "/modules/carousel",
+  },
+  {
+    name: "Form",
+    href: "/modules/form",
+  },
 ];
+
+const { logo } = localData.images;
 
 const navLinks = [
   { name: "home", href: "/" },
@@ -49,8 +65,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="navbar p-3">
-      <ul className="flex gap-2 items-center">
+    <nav className="navbar p-3 flex items-center justify-between ">
+      <img src={logo} alt="" className="max-w-[50px] h-auto " />
+      <ul className=" gap-2 items-center hidden md:flex">
         {navLinks.map((item) => {
           const activeLink =
             (item.href === "/" && pathname === "/") || (item.href !== "/" && pathname.startsWith(item.href));
@@ -65,15 +82,20 @@ export default function Navbar() {
             </li>
           );
         })}
-        <DropdownMenuDemo buttonName="Modules" title="" variant="ghost" defaultItems={[]} >
+        <DropdownMenuDemo
+          defaultItems={[]}
+          trigger={
+            <Button variant="ghost" className="font-normal text-[16px]">
+              Modules
+              <ChevronDown />
+            </Button>
+          }
+        >
           {componentLinks.map((item, index) => {
             const activeLink = pathname.startsWith(item.href);
             return (
               <DropdownMenuItem key={index} asChild className="cursor-pointer">
-                <Link
-                  href={item.href}
-                  className={`d-flex w-[100%] ${activeLink ? "text-green-700" : ""}`}
-                >
+                <Link href={item.href} className={`flex w-[100%] ${activeLink ? "text-green-700" : ""}`}>
                   {item.name}
                 </Link>
               </DropdownMenuItem>
@@ -109,6 +131,73 @@ export default function Navbar() {
           </DropdownMenuGroup>
         </DropdownMenuDemo>
       </ul>
+      <div className="btn-group  gap-2 hidden md:flex">
+        <ButtonDemo variant="outline" />
+        <ModeToggle />
+      </div>
+      <SheetDemo
+        title="Menu"
+        description="Lorem ipsum dolor."
+        side="left"
+        contentClassName=" overflow-y-auto "
+        trigger={
+          <Button size="icon" variant="ghost" className="md:hidden">
+            <Menu />
+          </Button>
+        }
+      >
+        {(onClose) => (
+          <nav className="navbar">
+            <ul className="mt-[20px]">
+              {navLinks.map((item) => {
+                const activeLink =
+                  (item.href === "/" && pathname === "/") ||
+                  (item.href !== "/" && pathname.startsWith(item.href));
+                return (
+                  <li key={item.name} className="list-none">
+                    <Link
+                      href={item.href}
+                      className={`block py-2 px-4 hover:bg-slate-100 rounded-md ${
+                        activeLink ? "text-green-700" : ""
+                      }`}
+                      onClick={onClose}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <AccordionDemo
+              triggerClassName="text-[16px] font-normal !no-underline py-2 px-4 hover:bg-slate-100 rounded-md"
+              items={[
+                {
+                  trigger: "Modules",
+                  content: (
+                    <ul>
+                      {componentLinks.map((item, index) => {
+                        const activeLink = pathname.startsWith(item.href);
+                        return (
+                          <Link
+                            key={index}
+                            href={item.href}
+                            className={`block py-2 px-4 hover:bg-slate-100 rounded-md ${
+                              activeLink ? "text-green-700" : ""
+                            }`}
+                            onClick={onClose}
+                          >
+                            {item.name}
+                          </Link>
+                        );
+                      })}
+                    </ul>
+                  ),
+                },
+              ]}
+            />
+          </nav>
+        )}
+      </SheetDemo>
     </nav>
   );
 }

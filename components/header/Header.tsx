@@ -1,13 +1,12 @@
 import React from "react";
-import { Navbar, ModeToggle } from "@/components/index.js";
+import { Navbar } from "@/components/index.js";
 
 const Header = () => {
-    return (
-        <header>
-            <Navbar />
-            <ModeToggle/>
-        </header>
-    );
+  return (
+    <header>
+      <Navbar />
+    </header>
+  );
 };
 
 export default Header;

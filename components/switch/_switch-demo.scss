@@ -1,0 +1,34 @@
+.switch {
+    &[data-color=success] {
+        color: color(success) ;
+        button {
+            &[data-state=checked] {
+                background-color: color(success) !important;
+            }
+        }
+    }
+    &[data-color=warning]  {
+        color: color(warning) ;
+        button {
+            &[data-state=checked] {
+                background-color: color(warning);
+            }
+        }
+    }
+    &[data-color=warning]  {
+        color: color(warning) ;
+        button {
+            &[data-state=checked] {
+                background-color: color(warning);
+            }
+        }
+    }
+    &[data-color=dark]  {
+        color: color(dark) ;
+        button {
+            &[data-state=checked] {
+                background-color: color(dark);
+            }
+        }
+    }
+}

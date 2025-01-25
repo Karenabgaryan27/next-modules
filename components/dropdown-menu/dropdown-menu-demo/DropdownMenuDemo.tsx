@@ -22,6 +22,7 @@ type ItemsProps = {
 };
 
 type DropdownProps = {
+  trigger?: ReactNode;
   buttonName?: string;
   title?: string;
   contentClassName?: string;
@@ -33,6 +34,7 @@ type DropdownProps = {
 };
 
 export function DropdownMenuDemo({
+  trigger = null,
   buttonName = "Open",
   title = "",
   contentClassName = "",
@@ -63,10 +65,16 @@ export function DropdownMenuDemo({
 
   return (
     <DropdownMenu open={open} onOpenChange={handleOpenChange}>
-      <DropdownMenuTrigger asChild className={`dropdown-menu-demo-trigger ${triggerClassName}`}>
-        <Button variant={variant} size="sm">
-          {buttonName}
-        </Button>
+      <DropdownMenuTrigger
+        asChild
+        className={`dropdown-menu-demo-trigger ${triggerClassName}`}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        {trigger || (
+          <Button variant={variant} size="sm">
+            {buttonName}
+          </Button>
+        )}
       </DropdownMenuTrigger>
       <DropdownMenuContent className={`w-56 mx-3 dropdown-menu-demo-content ${contentClassName}`}>
         {title && <DropdownMenuLabel>{title}</DropdownMenuLabel>}

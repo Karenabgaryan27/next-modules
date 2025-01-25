@@ -9,11 +9,12 @@ type ItemsProps = {
 
 type AccordionDemoProps = {
   className?: string;
+  triggerClassName?: string;
   items: ItemsProps[];
   type?: "single" | "multiple";
 };
 
-export function AccordionDemo({ className = "", items = [], type = "single" }: AccordionDemoProps) {
+export function AccordionDemo({ className = "",triggerClassName  = '' , items = [], type = "single" }: AccordionDemoProps) {
   /* for multiple type remove collapsible attribute*/
   return (
     <Accordion
@@ -24,7 +25,7 @@ export function AccordionDemo({ className = "", items = [], type = "single" }: A
       {items.map((item, index) => {
         return (
           <AccordionItem value={`item-${uuidv4()}`} key={index}>
-            <AccordionTrigger>{item.trigger}</AccordionTrigger>
+            <AccordionTrigger className={triggerClassName}>{item.trigger}</AccordionTrigger>
             <AccordionContent>{item.content}</AccordionContent>
           </AccordionItem>
         );

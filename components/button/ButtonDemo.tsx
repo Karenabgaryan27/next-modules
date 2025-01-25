@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/button";
 const buttonStyles = {
   default: {
     primary: "",
-    success: "bg-green-600 hover:bg-green-500",
-    warning: "bg-yellow-600 hover:bg-yellow-500",
+    // success: "bg-green-600 hover:bg-green-500",
+    success: "bg-success hover:bg-success-hover",
+    // warning: "bg-yellow-600 hover:bg-yellow-500",
+    warning: "bg-warning hover:bg-warning-hover",
   },
   secondary: {
     primary: "",
@@ -37,8 +39,8 @@ const buttonStyles = {
   },
 };
 
-type ButtonDemoProps = {
-  className?: string,
+type ButtonDemoProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  className?: string;
   name?: string;
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
   size?: "default" | "sm" | "lg" | "icon" | null | undefined;
@@ -47,10 +49,11 @@ type ButtonDemoProps = {
   endIcon?: ReactElement | null;
   color?: "primary" | "success" | "warning";
   disabled?: boolean;
+  onClick?: ()=>void
 };
 
 export function ButtonDemo({
-  className="",
+  className = "",
   name = "Button",
   variant = "default",
   size = "default",
@@ -59,6 +62,8 @@ export function ButtonDemo({
   endIcon = null,
   color = "primary",
   disabled = false,
+  onClick = ()=>{},
+  ...props
 }: ButtonDemoProps) {
   const [buttonStyle, setButtonStyle] = useState("");
 
@@ -72,11 +77,19 @@ export function ButtonDemo({
   }, []);
 
   return (
-    <Button variant={variant} size={size} disabled={disabled} className={`${className} ${buttonStyle}`}>
+    <Button
+      variant={variant}
+      size={size}
+      disabled={disabled}
+      className={`${className} ${buttonStyle}`}
+      onClick={onClick}
+      {...props}
+    >
       {startIcon}
       {name}
       {icon}
       {endIcon}
+      {/* <div data-type={type}></div> */}
     </Button>
   );
 }

@@ -9,3 +9,9 @@
 // COMPONENTS
 @import './components/dropdown-menu/dropdown-menu-checkboxes/dropdown-menu-checkboxes';
 @import './components/select/select-scrollable/select-scrollable';
+@import './components/carousel/carousel-demo';
+@import './components/checkbox/checkbox-demo';
+@import './components/switch/switch-demo';
+
+//REST
+@import '../hooks/joi-validation/joi-validation';

@@ -1,0 +1,19 @@
+.valid-feedback,
+.invalid-feedback {
+    display: none;
+}
+
+.was-submitted {
+    .is-valid {
+        border-color: color(success);
+        & ~ .valid-feedback {
+            display: block;
+        }
+    }
+    .is-invalid {
+        border-color: color(danger);
+        & ~ .invalid-feedback {
+            display: block;
+        }
+    }
+}
