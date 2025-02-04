@@ -23,32 +23,32 @@ const page = () => {
 
           <div className="btn-group flex gap-2 items-center">
             <strong>Default:</strong>
-            <ButtonDemo name="Button" />
-            <ButtonDemo color="warning" />
-            <ButtonDemo color="success" />
+            <ButtonDemo text="Button" />
+            <ButtonDemo text="Button" color="warning" />
+            <ButtonDemo text="Button" color="success" />
           </div>
           <br />
           <div className="btn-group flex gap-2 items-center">
             <strong>Secondary:</strong>
-            <ButtonDemo variant="secondary" />
-            <ButtonDemo variant="secondary" color="warning" />
-            <ButtonDemo variant="secondary" color="success" />
+            <ButtonDemo text="Button" variant="secondary" />
+            <ButtonDemo text="Button" variant="secondary" color="warning" />
+            <ButtonDemo text="Button" variant="secondary" color="success" />
           </div>
           <br />
 
           <div className="btn-group flex gap-2 items-center">
             <strong>Outline:</strong>
-            <ButtonDemo variant="outline" />
-            <ButtonDemo variant="outline" color="warning" />
-            <ButtonDemo variant="outline" color="success" />
+            <ButtonDemo text="Button" variant="outline" />
+            <ButtonDemo text="Button" variant="outline" color="warning" />
+            <ButtonDemo text="Button" variant="outline" color="success" />
           </div>
           <br />
 
           <div className="btn-group flex gap-2 items-center">
             <strong>Ghost:</strong>
-            <ButtonDemo variant="ghost" />
-            <ButtonDemo variant="ghost" color="warning" />
-            <ButtonDemo variant="ghost" color="success" />
+            <ButtonDemo text="Button" variant="ghost" />
+            <ButtonDemo text="Button" variant="ghost" color="warning" />
+            <ButtonDemo text="Button" variant="ghost" color="success" />
           </div>
           <br />
           <br />
@@ -58,9 +58,9 @@ const page = () => {
 
           <div className="btn-group flex gap-2 items-center">
             <strong>Sizes:</strong>
-            <ButtonDemo startIcon={<Mail/>} size="sm" name="Button" />
-            <ButtonDemo startIcon={<Mail/>}  name="Button" />
-            <ButtonDemo startIcon={<Mail/>} size="lg" name="Button" />
+            <ButtonDemo startIcon={<Mail />} size="sm" name="Button" />
+            <ButtonDemo startIcon={<Mail />} name="Button" />
+            <ButtonDemo startIcon={<Mail />} size="lg" name="Button" />
           </div>
           <br />
           <br />
@@ -68,30 +68,30 @@ const page = () => {
           <br />
           <br />
 
-          <ButtonDemo variant="destructive" />
+          <ButtonDemo text="Button" variant="destructive" />
           <br />
           <br />
 
-          <ButtonDemo variant="link" />
+          <ButtonDemo text="Button" variant="link" />
           <br />
           <br />
 
           <ButtonDemo variant="outline" size="icon" name="" icon={<ChevronRight />} />
           <br />
           <br />
-          <ButtonDemo startIcon={<Mail />} />
+          <ButtonDemo text="Button" startIcon={<Mail />} />
           <br />
           <br />
 
-          <ButtonDemo startIcon={<img className="w-[16px]" src={exampleImage} alt="" />} />
+          <ButtonDemo text="Button" startIcon={<img className="w-[16px]" src={exampleImage} alt="" />} />
           <br />
           <br />
 
-          <ButtonDemo startIcon={home} />
+          <ButtonDemo text="Button" startIcon={home} />
           <br />
           <br />
 
-          <ButtonDemo startIcon={<Loader2 className="animate-spin" />} disabled={true} />
+          <ButtonDemo text="Button" startIcon={<Loader2 className="animate-spin" />} disabled={true} />
           <br />
           <br />
         </div>

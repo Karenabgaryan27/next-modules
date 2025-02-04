@@ -2,8 +2,17 @@
 import { Mail, Plus } from "lucide-react";
 import localData from "../../../localData";
 import React, { useState, ReactElement, useEffect } from "react";
-import { DropdownMenuCheckboxes, DropdownMenuDemo, SelectScrollable, ComboboxDemo } from "@/components/index.js";
+import {
+  DropdownMenuCheckboxes,
+  DropdownMenuDemo,
+  SelectScrollable,
+  ComboboxDemo,
+  CommandDemo,
+  CommandDialogDemo,
+} from "@/components/index.js";
 import useFetch from "@/hooks/useFetch";
+import { navLinks } from "@/components/navbar/Navbar";
+import { useRouter } from "next/navigation";
 
 const { home } = localData.svgs;
 const { exampleImageSVG } = localData.images;
@@ -110,9 +119,8 @@ const DropdownMenuCheckboxesSection = () => {
 };
 
 const SelectSection = () => {
-
   type FetchedItemsProps = {
-    id: number,
+    id: number;
     title: string;
     thumbnailUrl: string;
   };
@@ -129,9 +137,9 @@ const SelectSection = () => {
           id: item.id,
           label: item.title,
           value: item.title,
-          startIcon:  <img className="w-[16px]" src={exampleImageSVG} alt=""  /> ,
-          endIcon:  home,
-          isSelected: index == 3
+          startIcon: <img className="w-[16px]" src={exampleImageSVG} alt="" />,
+          endIcon: home,
+          isSelected: index == 3,
         }));
         setFetchedItems(filteredData);
       } catch (err) {
@@ -142,8 +150,8 @@ const SelectSection = () => {
     _getProducts();
   }, []);
 
-  const callback = (value: object) => {
-    console.log(value);
+  const callback = (item: { value: string | number }) => {
+    console.log(item.value);
   };
 
   return (
@@ -151,7 +159,7 @@ const SelectSection = () => {
       <div className="container ">
         <h2 className="text-4xl">Select Scrollable</h2>
         <br />
-    
+
         <SelectScrollable
           defaultItems={fetchedItems}
           callback={callback}
@@ -164,9 +172,8 @@ const SelectSection = () => {
 };
 
 const ComboboxSection = () => {
-
   type FetchedItemsProps = {
-    id: number,
+    id: number;
     title: string;
     thumbnailUrl: string;
   };
@@ -183,9 +190,9 @@ const ComboboxSection = () => {
           id: item.id,
           label: item.title,
           value: item.title,
-          startIcon:  <img className="w-[16px]" src={exampleImageSVG} alt=""  /> ,
-          endIcon:  home,
-          isSelected: index == 3
+          startIcon: <img className="w-[16px]" src={exampleImageSVG} alt="" />,
+          endIcon: home,
+          isSelected: index == 3,
         }));
         setFetchedItems(filteredData);
       } catch (err) {
@@ -205,13 +212,103 @@ const ComboboxSection = () => {
       <div className="container ">
         <h2 className="text-4xl">Combobox</h2>
         <br />
-    
+
         <ComboboxDemo
           defaultItems={fetchedItems}
           callback={callback}
           triggerClassName={`combobox-demo-trigger-custom`}
           contentClassName={`combobox-demo-content-custom`}
         />
+      </div>
+    </section>
+  );
+};
+
+const CommandSection = () => {
+  type ItemsProps = {
+    label: string;
+    value: string;
+    isSelected?: boolean;
+    startIcon?: ReactElement;
+    endIcon?: ReactElement;
+  };
+
+  type FetchedItemsProps = {
+    id: number;
+    title: string;
+    thumbnailUrl: string;
+  };
+
+  // CommandDemo
+  const [fetchedItems, setFetchedItems] = useState([]);
+  const { getProducts } = useFetch();
+
+  useEffect(() => {
+    const _getProducts = async () => {
+      try {
+        const data = await getProducts();
+        const filteredData = data.map((item: FetchedItemsProps, index: number) => ({
+          id: item.id,
+          label: item.title,
+          value: item.title,
+          startIcon: <img className="w-[16px]" src={exampleImageSVG} alt="" />,
+          endIcon: home,
+          isSelected: index == 3,
+        }));
+        setFetchedItems(filteredData);
+      } catch (err) {
+        // errorAlert(err?.response?.data?.res_msg || "Internal Server Error");
+        console.error(err, "=getProducts= request error");
+      }
+    };
+    _getProducts();
+  }, []);
+
+  const callback = (item: ItemsProps) => {
+    console.log(item);
+  };
+
+  // CommandDialogDemo
+  const [filteredLinks, setFilteredLinks] = useState<ItemsProps[]>([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    const filtered = navLinks.map((item) => {
+      return { label: item.title, value: item.href };
+    });
+    setFilteredLinks(filtered);
+  }, []);
+
+  const routeCallback = (item: { value: string }) => {
+    router.push(item.value as string)
+    console.log(item.value);
+  };
+
+  return (
+    <section>
+      <div className="container">
+        <h2 className="text-4xl">Command</h2>
+        <br />
+        <br />
+        <strong>Command:</strong>
+        <CommandDemo defaultItems={fetchedItems} callback={callback} className={`command-demo-custom`} />
+        <br />
+        <br />
+        <strong>Dialog Command:</strong>
+        <CommandDialogDemo defaultItems={filteredLinks} callback={routeCallback} />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </section>
   );
@@ -226,7 +323,9 @@ const Content = () => {
       <hr />
       <SelectSection />
       <hr />
-      <ComboboxSection/>
+      <ComboboxSection />
+      <hr />
+      <CommandSection />
     </>
   );
 };

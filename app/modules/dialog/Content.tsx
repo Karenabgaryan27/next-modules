@@ -14,20 +14,20 @@ const Content = () => {
         <br />
         <br />
 
-        <DialogDemo trigger={<ButtonDemo name="Open dialog with children" variant="outline" />}>
+        <DialogDemo trigger={<ButtonDemo text="Open dialog with children" variant="outline" />}>
           {(closeDialog) => (
             <div>
               <h2 className="text-2xl">Title</h2>
               <p>Dialog discription</p>
               <br />
-              <ButtonDemo className="ml-auto flex" onClick={closeDialog} name="Close" variant="outline" />
+              <ButtonDemo className="ml-auto flex" onClick={closeDialog} text="Close" variant="outline" />
             </div>
           )}
         </DialogDemo>
         <br />  
         <br />  
 
-        <DialogDemo contentClassName='min-h-[400px]' trigger={<ButtonDemo name="Open dialog with nested Dialog children" variant="outline" />}>
+        <DialogDemo contentClassName='min-h-[400px]' trigger={<ButtonDemo text="Open dialog with nested Dialog children" variant="outline" />}>
           <DialogDemo title="Title" description="Nested Dialog description" ></DialogDemo>
         </DialogDemo>
 

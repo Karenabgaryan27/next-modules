@@ -13,11 +13,11 @@ import {
 } from "@/components/ui/select";
 
 type ItemsProps = {
-  label: string;
-  value: string;
-  isSelected: boolean;
-  startIcon: ReactElement;
-  endIcon: ReactElement;
+  label: string | number;
+  value: string | number;
+  isSelected?: boolean;
+  startIcon?: ReactElement;
+  endIcon?: ReactElement;
 };
 
 type SelectScrollableProps = {
@@ -25,7 +25,7 @@ type SelectScrollableProps = {
   triggerClassName?: string;
   placeholder?: string;
   defaultItems?: ItemsProps[];
-  callback?: (value: object) => void;
+  callback?: (item: ItemsProps) => void;
 };
 
 export function SelectScrollable({
@@ -36,7 +36,7 @@ export function SelectScrollable({
   callback = () => {},
 }: SelectScrollableProps) {
   const [items, setItems] = useState<ItemsProps[]>([]);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string | number>("");
 
   useEffect(() => {
     setItems([...defaultItems]);
@@ -46,7 +46,7 @@ export function SelectScrollable({
 
   return (
     <Select
-      value={value}
+      value={value.toString()}
       onValueChange={(value) => {
         setValue(value);
         const selectedItem = items.find((item) => item.value === value);
@@ -61,7 +61,7 @@ export function SelectScrollable({
         {items.length ? (
           items.map((item, index) => {
             return (
-              <SelectItem key={index} value={item.value} className="select-scrollable-item">
+              <SelectItem key={index} value={item.value.toString()} className="select-scrollable-item">
                 <div className="select-scrollable-item-inner flex items-center gap-2 ">
                   {item.startIcon && <span className="w-[16px]">{item.startIcon}</span>}
                   <span className="select-scrollable-text flex-1">{item.label}</span>{" "}

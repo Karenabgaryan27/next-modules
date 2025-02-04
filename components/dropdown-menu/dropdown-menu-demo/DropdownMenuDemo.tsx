@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ReactNode, ReactElement, useState, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 
 type ItemsProps = {
   name?: string;
@@ -31,6 +32,8 @@ type DropdownProps = {
   defaultItems: ItemsProps[];
   children?: ReactNode;
   callback?: (items: ItemsProps[]) => void;
+  side?: "top" | "right" | "bottom" | "left" | undefined;
+  align?: "center" | "start" | "end" | undefined;
 };
 
 export function DropdownMenuDemo({
@@ -43,6 +46,8 @@ export function DropdownMenuDemo({
   defaultItems = [],
   children = null,
   callback = () => {},
+  side = "top",
+  align = "center",
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
@@ -73,10 +78,15 @@ export function DropdownMenuDemo({
         {trigger || (
           <Button variant={variant} size="sm">
             {buttonName}
+            <ChevronDown />
           </Button>
         )}
       </DropdownMenuTrigger>
-      <DropdownMenuContent className={`w-56 mx-3 dropdown-menu-demo-content ${contentClassName}`}>
+      <DropdownMenuContent
+        className={`w-56 mx-3 dropdown-menu-demo-content ${contentClassName}`}
+        side={side}
+        align={align}
+      >
         {title && <DropdownMenuLabel>{title}</DropdownMenuLabel>}
         {/* <DropdownMenuSeparator /> */}
 

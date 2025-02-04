@@ -2,6 +2,7 @@
 
 import React, { ReactNode, ReactElement, useState, useEffect } from "react";
 // import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -66,9 +67,10 @@ export function DropdownMenuCheckboxes({
       <DropdownMenuTrigger asChild className={`dropdown-menu-checkboxes-trigger ${triggerClassName}`}>
         <Button variant={variant} size="sm">
           {buttonName}
+          <ChevronDown/>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className={`w-56 mx-3 dropdown-menu-checkboxes-content ${contentClassName}`}>
+      <DropdownMenuContent  className={`w-56 mx-3 dropdown-menu-checkboxes-content ${contentClassName}`}>
         {title && <DropdownMenuLabel>{title}</DropdownMenuLabel>}
         {/* <DropdownMenuSeparator /> */}
         {items.length

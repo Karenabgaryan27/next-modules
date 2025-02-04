@@ -50,6 +50,17 @@ const InputsSection = () => {
 
         <br />
         <br />
+        <InputDemo
+          label="Picture"
+          className="max-w-[350px]"
+          name="picture"
+          type="file"
+          defaultValue=""
+          callback={(e) => console.log(e.target.value)}
+        />
+
+        <br />
+        <br />
         <br />
         <br />
         <br />
@@ -200,7 +211,7 @@ const JoiValidationSection = () => {
               textareaClassName={errorMessages.message ? "is-invalid" : "is-valid"}
             />
             <br />
-            <ButtonDemo name="Submit" variant="outline" className="ml-auto flex" />
+            <ButtonDemo text="Submit" variant="outline" className="ml-auto flex" />
           </fieldset>
         </form>
       </div>

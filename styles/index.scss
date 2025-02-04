@@ -5,8 +5,10 @@
 
 // PAGES
 @import './app/products/products';
+@import './app/helpers/lazy-load/lazy-load';
 
 // COMPONENTS
+@import './components/navbar/navbar';
 @import './components/dropdown-menu/dropdown-menu-checkboxes/dropdown-menu-checkboxes';
 @import './components/select/select-scrollable/select-scrollable';
 @import './components/carousel/carousel-demo';
@@ -15,3 +17,4 @@
 
 //REST
 @import '../hooks/joi-validation/joi-validation';
+

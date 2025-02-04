@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-openSans), Arial, Helvetica, sans-serif;
+  // font-family: var(--font-openSans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 // @layer base {
@@ -132,57 +133,64 @@ body {
 
 // CONTAINERS
 
-.container,
-.container-fluid {
-    width: 100%;
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
-    margin-right: auto;
-    margin-left: auto;
-}
+// .container-fluid {
+//     padding-right: 0.75rem;
+//     padding-left: 0.75rem;
+//     margin-right: auto;
+//     margin-left: auto;
+// }
 
-.container {
-    // @include mq(576px) {
-    //     max-width: 540px; // 36
-    // }
-    // @include mq(768px) {
-    //     max-width: 720px; // 48
-    // }
-    // @include mq(992px) {
-    //     max-width: 960px; // 32
-    // }
-    @include mq(768px) {
-        padding-right: 80px;
-        padding-left: 80px;
-    }
-    @include mq(1200px) {
-        max-width: calc(1140px + 80px * 2); // 60
-    }
-    @include mq(1400px) {
-        max-width: calc(1320px + 80px * 2); // 80
-    }
-    // @include mq(1920px) {
-    //     max-width: mw(xl); //full hd
-    // }
-    // @include mq(2560px) {
-    //     max-width: 2400px; //2k
-    // }
-    // @include mq(3840px) {
-    //     max-width: 3700px; //4k
-    // }
-}
-
-
-// CONDITIONAL
-
-section {
-  padding: 2rem 0;
-  min-height: 50vh;
-}
-
-.dropdown-menu-wrapper {
-}
+// .container {
+//   @media screen and (min-width:1200px) {
+//     @apply max-w-[calc(1140px+80px*2)] 
+//   }
+//   @media screen and (min-width:1400px) {
+//     @apply max-w-[calc(1320px+80px*2)] 
+//   }
+// }
 
 button:focus {
   box-shadow: none !important;
 }
+
+
+// LAZY LOAD
+// @media screen and (min-width: 576px) {
+  [data-lazy] {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-property: opacity, transform !important;
+    transition-timing-function: ease-in, ease-out !important;
+    transition-duration: 0.7s !important;
+    // transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
+}
+
+[data-lazy="fade-up"] {
+    transform: translate3d(0, 100px, 0);
+}
+[data-lazy="fade-up-30"] {
+    transform: translate3d(0, 30px, 0);
+}
+[data-lazy="fade-down"] {
+    transform: translate3d(0, -100px, 0);
+}
+[data-lazy="fade-left"] {
+    transform: translate3d(100px, 0, 0);
+}
+
+.lazy-animate {
+    opacity: 1;
+    transform: translateZ(0);
+}
+
+// }
+
+// CONDITIONAL
+main > section {
+  @apply py-[2rem] min-h-[50vh];
+}
+
+
+
+
+

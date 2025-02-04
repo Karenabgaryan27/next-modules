@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement,ReactNode, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const buttonStyles = {
@@ -41,7 +41,7 @@ const buttonStyles = {
 
 type ButtonDemoProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
-  name?: string;
+  text?: ReactNode;
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
   size?: "default" | "sm" | "lg" | "icon" | null | undefined;
   icon?: ReactElement | null;
@@ -49,12 +49,12 @@ type ButtonDemoProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   endIcon?: ReactElement | null;
   color?: "primary" | "success" | "warning";
   disabled?: boolean;
-  onClick?: ()=>void
+  onClick?: () => void;
 };
 
 export function ButtonDemo({
   className = "",
-  name = "Button",
+  text = "",
   variant = "default",
   size = "default",
   icon = null,
@@ -62,7 +62,7 @@ export function ButtonDemo({
   endIcon = null,
   color = "primary",
   disabled = false,
-  onClick = ()=>{},
+  onClick = () => {},
   ...props
 }: ButtonDemoProps) {
   const [buttonStyle, setButtonStyle] = useState("");
@@ -86,7 +86,7 @@ export function ButtonDemo({
       {...props}
     >
       {startIcon}
-      {name}
+      {text}
       {icon}
       {endIcon}
       {/* <div data-type={type}></div> */}

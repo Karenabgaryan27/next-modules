@@ -1,0 +1,7 @@
+
+.navigation-menu {
+    & > div:nth-child(2) {
+      left: auto;
+      right: 0;
+    }
+  }

@@ -9,7 +9,7 @@ export default function Redirect() {
 
     return (
         <div>
-            <ButtonDemo variant="link" name="Back"   onClick={() => router.back()}/>
+            <ButtonDemo variant="link" text="Back"   onClick={() => router.back()}/>
         </div>
     );
 }

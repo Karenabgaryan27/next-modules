@@ -1,6 +1,7 @@
 // COMPONENTS
 export { default as Header } from "./header/Header.tsx";
 export { default as Navbar } from "./navbar/Navbar.tsx";
+export { default as Footer } from "./footer/Footer.tsx";
 export { ThemeProvider } from "./theme-provider.tsx";
 export { ModeToggle } from "./mode-toggle/ModeToggle.tsx";
 export { DropdownMenuCheckboxes } from "./dropdown-menu/dropdown-menu-checkboxes/DropdownMenuCheckboxes.tsx";
@@ -19,6 +20,11 @@ export { InputDemo } from "./input/InputDemo.tsx";
 export { TextareaDemo } from "./textarea/TextareaDemo.tsx";
 export { CheckboxDemo } from "./checkbox/CheckboxDemo.tsx";
 export { SwitchDemo } from "./switch/SwitchDemo.tsx";
+export { CommandDemo } from "./command/CommandDemo.tsx";
+export { CommandDialogDemo } from "./command/CommandDialogDemo.tsx";
+export { DataTableDemo } from "./data-table/DataTableDemo.tsx";
+export { TabsDemo } from "./tabs/TabsDemo.tsx";
+export { TooltipDemo } from "./tooltip/TooltipDemo.tsx";
 
 // CARDS
 export { CardWithForm } from "./cards/card-with-form/CardWithForm.tsx";

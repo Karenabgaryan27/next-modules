@@ -7,7 +7,8 @@ import {
   Roboto,
 } from "next/font/google";
 import "../styles/index.scss";
-import { Header, ThemeProvider } from "@/components/index.js";
+import { Header,Footer, ThemeProvider } from "@/components/index.js";
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -92,6 +93,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
           {children}
+          <Footer/>
+          <Toaster  />
         </ThemeProvider>
       </body>
     </html>
