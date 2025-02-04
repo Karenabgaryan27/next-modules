@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import { AccordionDemo } from "@/components/index.js";
 import localData from "@/localData";
 
 export const metadata: Metadata = {
