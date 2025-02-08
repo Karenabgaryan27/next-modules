@@ -1,38 +1,30 @@
 .checkbox {
-    &[data-color=success] {
-        color: color(success) ;
-        button {
-            border-color: color(success);
-            &[data-state=checked] {
-                background-color: color(success);
-            }
-        }
+  &[data-color="success"] {
+    @apply text-success;
+    button {
+      @apply border-success;
+      &[data-state="checked"] {
+        @apply bg-success;
+      }
     }
-    &[data-color=warning]  {
-        color: color(warning) ;
-        button {
-            border-color: color(warning);
-            &[data-state=checked] {
-                background-color: color(warning);
-            }
-        }
+  }
+  &[data-color="warning"] {
+    @apply text-warning;
+    button {
+    @apply border-warning;
+      &[data-state="checked"] {
+        @apply bg-warning;
+      }
     }
-    &[data-color=warning]  {
-        color: color(warning) ;
-        button {
-            border-color: color(warning);
-            &[data-state=checked] {
-                background-color: color(warning);
-            }
-        }
+  }
+
+  &[data-color="dark"] {
+    @apply text-black;
+    button {
+    @apply border-black;
+      &[data-state="checked"] {
+        @apply bg-black;
+      }
     }
-    &[data-color=dark]  {
-        color: color(dark) ;
-        button {
-            border-color: color(dark);
-            &[data-state=checked] {
-                background-color: color(dark);
-            }
-        }
-    }
+  }
 }

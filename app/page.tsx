@@ -1,7 +1,17 @@
+'use client'
+
 import React from "react";
+import { useGlobalContext } from "@/context";
 
 export default function Home() {
-  return (
+  const context = useGlobalContext()
+
+  if (!context) return <p>Loading...</p>;
+
+  // const { state } = context;
+  // console.log(state)
+  
+   return (
     <main className="home-page">
       <section className="showcase">
         <div className="container">

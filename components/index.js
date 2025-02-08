@@ -2,7 +2,6 @@
 export { default as Header } from "./header/Header.tsx";
 export { default as Navbar } from "./navbar/Navbar.tsx";
 export { default as Footer } from "./footer/Footer.tsx";
-export { ThemeProvider } from "./theme-provider.tsx";
 export { ModeToggle } from "./mode-toggle/ModeToggle.tsx";
 export { DropdownMenuCheckboxes } from "./dropdown-menu/dropdown-menu-checkboxes/DropdownMenuCheckboxes.tsx";
 export { DropdownMenuDemo } from "./dropdown-menu/dropdown-menu-demo/DropdownMenuDemo.tsx";

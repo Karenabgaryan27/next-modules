@@ -5,13 +5,13 @@
 
 .was-submitted {
     .is-valid {
-        border-color: color(success);
+        // @apply text-success;
         & ~ .valid-feedback {
             display: block;
         }
     }
     .is-invalid {
-        border-color: color(danger);
+        @apply border-destructive;
         & ~ .invalid-feedback {
             display: block;
         }

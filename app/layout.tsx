@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import {
   Geist,
   Geist_Mono,
-  // Poppins,
   Open_Sans,
-  Roboto,
 } from "next/font/google";
 import "../styles/index.scss";
-import { Header,Footer, ThemeProvider } from "@/components/index.js";
-import { Toaster } from "@/components/ui/sonner"
+import { Header, Footer } from "@/components/index.js";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
+import Provider from "../context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,21 +20,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// const poppins = Poppins({
-//   variable: "--font-poppins",
-//   subsets: ["latin"],
-//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-// });
-
 const openSans = Open_Sans({
   variable: "--font-open_sans",
   subsets: ["latin"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://next-modules.vercel.app";
@@ -47,7 +35,7 @@ export const metadata: Metadata = {
       { rel: "icon", url: "/assets/images/favicon/favicon-32x32.png", sizes: "32x32" },
       { rel: "icon", url: "/assets/images/favicon/favicon-16x16.png", sizes: "16x16" },
     ],
-    apple: "/assets/images/favicon/apple-touch-icon.png",
+    apple: "/assets/images/favicon/apple-icon.png",
   },
   openGraph: {
     title: "Sheet - Your Website Name",
@@ -87,15 +75,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${openSans.variable} ${roboto.variable}  ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Header />
-          {children}
-          <Footer/>
-          <Toaster  />
-        </ThemeProvider>
+      <body className={`${openSans.variable}  ${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Provider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Header />
+            {children}
+            <Footer />
+            <Toaster />
+          </ThemeProvider>
+        </Provider>
       </body>
     </html>
   );

@@ -13,6 +13,7 @@ export const navLinks = [
   { title: "About", href: "/about" },
   { title: "Products", href: "/products" },
   { title: "Polygon", href: "/polygon" },
+  { title: "Dashboard", href: "/dashboard" },
 ];
 
 export const dropdownLinksModules: { title: string; href: string; description: string }[] = [
